@@ -1,0 +1,323 @@
+/* Resetting the padding and margin */
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+/* Menu bar styles */
+.menu-bar {
+    background: #063146;
+    text-align: center;
+}
+
+.menu-bar ul {
+    display: inline-flex;
+    justify-content: center;
+    list-style: none;
+    color: #fff;
+}
+
+/* Ensure that the menu items (W values) are always centered */
+.menu-bar ul li {
+    display: flex;                /* Use flexbox for centering the content */
+    align-items: center;          /* Vertically center the text */
+    justify-content: center;      /* Horizontally center the text */
+    width: 120px;                 /* Fixed width for the menu items */
+    height: 50px;                 /* Set a consistent height */
+    padding: 15px;                /* Consistent padding for spacing */
+    margin: 15px;                 /* Margin between items */
+    text-align: center;           /* Ensure text is centered */
+    box-sizing: border-box;       /* Make sure padding and border are included in the width/height */
+    transition: background 0.3s, padding 0.3s; /* Smooth transition on hover */
+}
+
+/* Styling for the anchor tags within the li elements */
+.menu-bar ul li a {
+    text-decoration: none;
+    color: #fff;
+    width: 100%;                  /* Ensure the link spans the full width of the li */
+    text-align: center;           /* Ensure the text within the link is centered */
+    padding: 0;                   /* Remove any padding around the anchor */
+}
+
+/* Hover effect on the li */
+.menu-bar ul li:hover {
+    background: #063146;          /* Change background on hover */
+    border-radius: 3px;           /* Optional: rounded corners */
+}
+
+/* Ensure the text color inside the link doesn't get distorted */
+.menu-bar ul li:hover a {
+    background: transparent;      /* Keep the background of the link transparent */
+    color: #fff;                  /* Keep the text color unchanged */
+}
+
+
+
+.sub-menu-1 {
+    display: none;
+}
+
+.menu-bar ul li:hover .sub-menu-1 {
+    display: block;
+    position: absolute;
+    background:#063146;
+    margin-top: 15px;
+    margin-left: -15px;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul {
+    display: block;
+    margin: 10px;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li {
+    width: 150px;
+    padding: 10px;
+    border-bottom: 1px dotted #fff;
+    background: transparent;
+    border-radius: 0;
+    text-align: left;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li:last-child {
+    border-bottom: none;
+}
+
+.menu-bar ul li:hover .sub-menu-1 ul li a:hover {
+    color: #b2ff00;
+}
+
+/* Sidebar styles */
+.sidebar {
+    position: fixed;
+    left: -350px;
+    width: 350px;
+    height: 100%;
+    background: #042331;
+    transition: all .5s ease;
+}
+
+.sidebar header {
+    font-size: 22px;
+    color: white;
+    line-height: 70px;
+    text-align: center;
+    background: #063146;
+    user-select: none;
+}
+
+.sidebar ul a {
+    display: block;
+    height: 100%;
+    width: 100%;
+    line-height: 65px;
+    font-size: 20px;
+    color: white;
+    padding-left: 40px;
+    box-sizing: border-box;
+    border-bottom: 1px solid black;
+    border-top: 1px solid rgba(255, 255, 255, .1);
+    transition: .4s;
+}
+
+ul li:hover a {
+    padding-left: 10px;
+    padding-right: 10px;
+    text-align: center;
+}
+
+.sidebar ul a i {
+    margin-right: 16px;
+    text-align: center;
+}
+
+#check {
+    display: none;
+}
+
+label #btn, label #cancel {
+    position: absolute;
+    background: #042331;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+label #btn {
+    left: 40px;
+    top: 25px;
+    font-size: 35px;
+    color: white;
+    padding: 6px 18px;
+    transition: all .5s;
+}
+
+label #cancel {
+    z-index: 1111;
+    left: -150px;
+    top: 17px;
+    font-size: 30px;
+    color: #0a5275;
+    padding: 4px 9px;
+    transition: all .5s ease;
+}
+
+#check:checked ~ .sidebar {
+    left: 0;
+}
+
+#check:checked ~ label #btn {
+    left: 250px;
+    opacity: 0;
+    pointer-events: none;
+}
+
+#check:checked ~ label #cancel {
+    left: 300px;
+}
+
+#check:checked ~ section {
+    margin-left: 250px;
+}
+
+
+section {
+    background: url(bg.jpeg) no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    transition: all .5s;
+}
+
+/* Main Content Area */
+.main-content {
+    margin-left: 100px; /* Default state when sidebar is closed */
+    padding: 20px;
+    width: calc(100% - 100px);
+    transition: margin-left 0.5s ease; /* Added transition for content movement */
+}
+
+/* Content Sections */
+.content {
+    display: none; /* Hide content sections by default */
+}
+
+/* Dropdown Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+.dropbtn {
+    background-color: #042331;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.dropbtn:hover {
+    background-color: #063146;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #042331;
+    min-width: 160px;
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #064663;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* When sidebar is opened, shift main content */
+#check:checked ~ .main-content {
+    margin-left: 350px; /* Shifts content to the right when sidebar is open */
+    width: calc(100% - 350px);
+}
+
+/* When sidebar is opened, shift main content */
+#check:checked ~ .menu-bar {
+    margin-left: 350px; /* Shifts content to the right when sidebar is open */
+    width: calc(100% - 350px);
+}
+
+/* When sidebar is opened, shift the menu bar */
+#check:checked ~ .main-content .menu-bar ul {
+    width: calc(100% - 350px); /* Adjusts the width of menu bar */
+}
+
+/* Container for all the H=... values */
+#values-container {
+    display: flex; /* Use flexbox to distribute values equally */
+    justify-content: space-between; /* Equal space between values */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screen sizes */
+}
+
+/* Container for all the H=... values */
+#values-container {
+    display: flex; /* Use flexbox to distribute values equally */
+    justify-content: space-between; /* Equal space between values */
+    margin-top: 20px;
+    flex-wrap: wrap; /* Allow wrapping for smaller screen sizes */
+}
+
+/* Styling for each individual H=... value */
+.value-container {
+    text-align: center; /* Center the text and images */
+    margin: 10px;
+    flex: 1 0 14%; /* Decrease the width slightly (about 14%) to fit all 6 items on one line */
+}
+
+/* Label styling */
+.value-label {
+    display: block;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+/* Image styling to match the width of the label */
+.value-image {
+    max-width: 80%; /* Reduce the image width slightly to fit the labels better */
+    height: 500px; /* Maintain aspect ratio */
+    border: 1px solid #ccc; /* Optional border for image clarity */
+}
+
+/* Prevent horizontal scrolling on the page */
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden; /* Hide horizontal overflow */
+    width: 100%; /* Ensure the body takes up full width */
+}
+
+/* Styling for the selected W value */
+.menu-bar ul li.selected a {
+    background-color: #063146; /* Highlight the selected value */
+    color: #b2ff00; /* Change text color for the selected item */
+    text-align: center;
+}
+
