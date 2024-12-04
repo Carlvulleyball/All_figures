@@ -38,26 +38,38 @@ body {
     transition: background 0.3s, padding 0.3s; /* Smooth transition on hover */
 }
 
-/* Styling for the anchor tags within the li elements */
-.menu-bar ul li a {
+/* General style for menu items */
+.menu-bar ul li a, .menu-bar-H ul li a {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 2px 0;
+    border-radius: 5px;
     text-decoration: none;
-    color: #fff;
-    width: 100%;                  /* Ensure the link spans the full width of the li */
-    text-align: center;           /* Ensure the text within the link is centered */
-    padding: 0;                   /* Remove any padding around the anchor */
+    color: white; /* Default text color */
+    transition: background-color 0.3s, color 0.3s; /* Smooth hover effect */
 }
 
-/* Hover effect on the li */
-.menu-bar ul li:hover {
-    background: #063146;          /* Change background on hover */
-    border-radius: 3px;           /* Optional: rounded corners */
+/* Hover state for menu items */
+.menu-bar ul li a:hover, .menu-bar-H ul li a:hover {
+    background-color: #ccc; /* Light grey */
+    color: white;
 }
 
-/* Ensure the text color inside the link doesn't get distorted */
-.menu-bar ul li:hover a {
-    background: transparent;      /* Keep the background of the link transparent */
-    color: #fff;                  /* Keep the text color unchanged */
+/* Selected state for menu items */
+.menu-bar ul li a.selected, .menu-bar-H ul li a.selected {
+    background-color: #28a745; /* Green background */
+    color: white; /* White text */
+    /* Ensure spacing and alignment remain consistent */
+    display: block;
+    text-align: center;
+    padding: 10px;
+    margin: 2px 0;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold; /* Optional: highlight with bold text */
 }
+
 
 
 
@@ -314,10 +326,58 @@ html, body {
     width: 100%; /* Ensure the body takes up full width */
 }
 
-/* Styling for the selected W value */
-.menu-bar ul li.selected a {
-    background-color: #063146; /* Highlight the selected value */
-    color: #b2ff00; /* Change text color for the selected item */
-    text-align: center;
-}
 
+#toggle-menu {
+    display: block;
+    margin: 0 auto; /* Centers the button horizontally */
+    padding: 15px 30px; /* Increase padding to make the button bigger */
+    font-size: 18px; /* Increase font size */
+    background-color: #037872; /* Optional: add background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional: rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    text-align: center; /* Center text inside the button */
+  }
+
+  #toggle-menu-H{
+    display: block;
+    margin: 0 auto; /* Centers the button horizontally */
+    padding: 15px 30px; /* Increase padding to make the button bigger */
+    font-size: 18px; /* Increase font size */
+    background-color: #234edb; /* Optional: add background color */
+    color: white; /* Text color */
+    border: none; /* Remove border */
+    border-radius: 5px; /* Optional: rounded corners */
+    cursor: pointer; /* Add pointer cursor on hover */
+    text-align: center; /* Center text inside the button */
+  }
+
+  #toggle-menu:hover {
+    background-color: #037872; /* Optional: change color on hover */
+  }
+  #toggle-menu-H:hover {
+    background-color: #234edb; /* Optional: change color on hover */
+  }
+  
+
+  #button-container {
+    display: flex; /* Use flexbox to arrange buttons in a row */
+    justify-content: space-between; /* Space out the buttons */
+    margin-bottom: 15px; /* Space below the buttons */
+  }
+  
+  #button-container button {
+    flex: 1; /* Make buttons take equal width */
+    margin: 0 5px; /* Optional: Add space between buttons */
+    font-size: 18px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+  }
+
+
+  .time-option.selected {
+    background-color: #007bff;
+    color: white;
+}

@@ -1,77 +1,138 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Sidebar Menu</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
-  </head>
-  <body>
-    <input type="checkbox" id="check">
-    <label for="check">
-      <i class="fas fa-bars" id="btn"></i>
-      <i class="fas fa-times" id="cancel"></i>
-    </label>
-    <div class="sidebar">
-      <header>Carltex</header>
-      <ul>
-        <li><a href="#" onclick="showContent('dashboard')"><i class="fas fa-qrcode"></i>Dashboard</a></li>
-        <li><a href="#" onclick="showContent('intrusion')"><i class="fas fa-link"></i>Intrusion Evolution</a></li>
-        <li><a href="#"><i class="fas fa-stream"></i>Density Perturbation</a></li>
-        <li><a href="#"><i class="fas fa-calendar-week"></i>Pressure Profiles</a></li>
-        <li><a href="#"><i class="far fa-question-circle"></i>Height and Velocity Profiles</a></li>
-        <li><a href="#"><i class="fas fa-sliders-h"></i>Shallow Water Models</a></li>
-        <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
-      </ul>
+
+<head>
+  <meta charset="utf-8">
+  <title>Sidebar Menu</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+  <style>
+    /* Add CSS to align buttons side by side */
+    #button-container {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 15px;
+    }
+
+    #button-container button {
+      width: 48%;
+      font-size: 18px;
+      padding: 10px;
+      text-align: center;
+      cursor: pointer;
+    }
+  </style>
+</head>
+
+<body>
+  <input type="checkbox" id="check">
+  <label for="check">
+    <i class="fas fa-bars" id="btn"></i>
+    <i class="fas fa-times" id="cancel"></i>
+  </label>
+  <div class="sidebar">
+    <header>Carltex</header>
+    <ul>
+      <li><a href="#" onclick="showContent('dashboard')"><i class="fas fa-qrcode"></i>Dashboard</a></li>
+      <li><a href="#" onclick="showContent('intrusion')"><i class="fas fa-link"></i>Intrusion Evolution</a></li>
+      <li><a href="#"><i class="fas fa-stream"></i>Density Perturbation</a></li>
+      <li><a href="#"><i class="fas fa-calendar-week"></i>Pressure Profiles</a></li>
+      <li><a href="#"><i class="far fa-question-circle"></i>Height and Velocity Profiles</a></li>
+      <li><a href="#"><i class="fas fa-sliders-h"></i>Shallow Water Models</a></li>
+      <li><a href="#"><i class="far fa-envelope"></i>Contact</a></li>
+    </ul>
+  </div>
+
+  <div class="main-content">
+    <div id="dashboard" class="content">
+      <h2>Dashboard Content</h2>
+      <br>
+      <p>This is the dashboard section. More information can go here.</p>
+      <br>
     </div>
 
-    <div class="main-content">
-      <div id="dashboard" class="content">
-        <h2>Dashboard Content</h2>
-        <br>
-        <p>This is the dashboard section. More information can go here.</p>
-        <br>
+    <div id="intrusion" class="content">
+      <h2>Intrusion Evolution Content</h2>
+      <br>
+      <p>This is the Intrusion Evolution section. More information on this topic.</p>
+      <br>
+
+      <!-- Buttons side by side -->
+      <div id="button-container">
+        <!-- Button for W -->
+        <button id="toggle-menu">Compare According to \( \mathcal{W} \)</button>
+
+        <!-- Button for H -->
+        <button id="toggle-menu-H">Compare According to \( \mathcal{H} \)</button>
+
+      </div>
+      <!-- Dropdown Menu under Intrusion Evolution for W -->
+      <nav id="menu-bar" class="menu-bar" style="display: none;">
+        <ul>
+          <li><a href="#" class="w-value" data-w-value="0.5">\( \mathcal{W} = 0.5 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="0.6">\( \mathcal{W} = 0.6 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="0.8">\( \mathcal{W} = 0.8 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="1.0">\( \mathcal{W} = 1.0 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="1.2">\( \mathcal{W} = 1.2 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="1.5">\( \mathcal{W} = 1.5 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="2.0">\( \mathcal{W} = 2.0 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="2.5">\( \mathcal{W} = 2.5 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="3.0">\( \mathcal{W} = 3.0 \)</a></li>
+          <li><a href="#" class="w-value" data-w-value="4.0">\( \mathcal{W} = 4.0 \)</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown Menu under Intrusion Evolution for H -->
+      <nav id="menu-bar-H" class="menu-bar" style="display: none;">
+        <ul>
+          <li><a href="#" class="h-value" data-height-value="2.2">\( \mathcal{H} = 2.2 \)</a></li>
+          <li><a href="#" class="h-value" data-height-value="3">\( \mathcal{H} = 3 \)</a></li>
+          <li><a href="#" class="h-value" data-height-value="4.5">\( \mathcal{H} = 4.5 \)</a></li>
+          <li><a href="#" class="h-value" data-height-value="6">\( \mathcal{H} = 6 \)</a></li>
+          <li><a href="#" class="h-value" data-height-value="8">\( \mathcal{H} = 8 \)</a></li>
+          <li><a href="#" class="h-value" data-height-value="10">\( \mathcal{H} = 10 \)</a></li>
+        </ul>
+      </nav>
+      <br>
+      <!-- Dropdown Menu for Time Selection -->
+      <div id="time-selector">
+        <button class="time-option" data-time="10">Time 10</button>
+        <button class="time-option selected" data-time="50">Time 50</button>
+        <button class="time-option" data-time="100">Time 100</button>
       </div>
 
-      <div id="intrusion" class="content">
-        <h2>Intrusion Evolution Content</h2>
-        <br>
-        <p>This is the Intrusion Evolution section. More information on this topic.</p>
-        <br>
+      <!-- Submenu for Time Selection -->
 
-        <!-- Dropdown Menu under Intrusion Evolution -->
-        <nav class="menu-bar">
-          <ul>
-              <li><a href="#" data-w-value="0.5">\( \mathcal{W} = 0.5 \)</a></li>
-              <li><a href="#" data-w-value="0.6">\( \mathcal{W} = 0.6 \)</a></li>
-              <li><a href="#" data-w-value="0.8">\( \mathcal{W} = 0.8 \)</a></li>
-              <li><a href="#" data-w-value="1.0">\( \mathcal{W} = 1.0 \)</a></li>
-              <li><a href="#" data-w-value="1.2">\( \mathcal{W} = 1.2 \)</a></li>
-              <li><a href="#" data-w-value="1.5">\( \mathcal{W} = 1.5 \)</a></li>
-              <li><a href="#" data-w-value="2.0">\( \mathcal{W} = 2.0 \)</a></li>
-              <li><a href="#" data-w-value="2.5">\( \mathcal{W} = 2.5 \)</a></li>
-              <li><a href="#" data-w-value="3.0">\( \mathcal{W} = 3.0 \)</a></li>
-              <li><a href="#" data-w-value="4.0">\( \mathcal{W} = 4.0 \)</a></li>
-          </ul>
-        </nav>
-        
-        <!-- Container for displaying the content -->
-        <div id="values-container">
-            <!-- Dynamically generated content will go here -->
-        </div>
-        
-        
-        <!-- Placeholder for H=... values -->
-        <div id="values-container" class="values-container">
-          <!-- Initially empty, filled dynamically by showValues() function -->
-        </div>
+
+      <nav id="menu-bar-time-H" class="menu-bar" style="display: none; margin-left: 20px;">
+        <ul>
+          <li><a href="#" class="time-value" data-time-value="10">Time = 10</a></li>
+          <li><a href="#" class="time-value" data-time-value="50">Time = 50</a></li>
+          <li><a href="#" class="time-value" data-time-value="100">Time = 100</a></li>
+        </ul>
+      </nav>
+
+      <!-- Dropdown Menu for Time Selection for W -->
+      <nav id="menu-bar-time-W" class="menu-bar" style="display: none; margin-left: 20px;">
+        <ul>
+          <li><a href="#" class="time-value" data-time-value="10">Time = 10</a></li>
+          <li><a href="#" class="time-value" data-time-value="50">Time = 50</a></li>
+          <li><a href="#" class="time-value" data-time-value="100">Time = 100</a></li>
+        </ul>
+      </nav>
+
+      <div id="values-container">
+        <!-- Dynamically generated content will go here -->
+
       </div>
+
     </div>
-    <script type="text/javascript" async
-    src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
-    </script>
-    <script src="script.js"></script>
-    
-  </body>
+  </div>
+
+  <script type="text/javascript" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js">
+  </script>
+  <script src="script.js"></script>
+</body>
+
 </html>
